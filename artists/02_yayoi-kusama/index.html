@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>02 草间弥生 · 50位当代女性艺术家 · A3画册版</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;700&display=swap');
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Print setup ── */
+@page {
+  size: 420mm 297mm landscape;
+  margin: 0;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body {
+    width: 420mm;
+    height: 297mm;
+  }
+  .no-print { display: none !important; }
+  .spread {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+  .spread:last-child { page-break-after: avoid; }
+}
+
+/* ── Variables ── */
+:root {
+  --bg:      #F2EDE4;
+  --bg-dk:   #D8D0C0;
+  --ink:     #1A1A18;
+  --ink-m:   #2C2820;
+  --ink-l:   #3A3828;
+  --gold:    #9A7B5A;
+  --gold-lt: #C0AA88;
+  --gold-pl: #E8E0D0;
+  --wine:    #8B2A35;
+  --rule:    #C8B89A;
+  --mono:    'Courier New', monospace;
+  --serif:   'Noto Serif SC', Georgia, serif;
+  --sans:    'Noto Sans SC', sans-serif;
+  --pad:     14mm;
+}
+
+body {
+  font-family: var(--serif);
+  background: #A8A098;
+  width: 420mm;
+  margin: 0 auto;
+}
+
+/* ── A3 spread = two A4 pages side by side ── */
+.spread {
+  display: grid;
+  grid-template-columns: 210mm 210mm;
+  width: 420mm;
+  height: 297mm;
+  background: var(--bg);
+  margin: 0 auto 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-l {
+  width: 210mm;
+  height: 297mm;
+  padding: var(--pad);
+  position: relative;
+  overflow: hidden;
+  border-right: 0.3mm solid var(--rule);
+  background: var(--bg);
+}
+
+.page-r {
+  width: 210mm;
+  height: 297mm;
+  padding: var(--pad);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* ── Images ── */
+.img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-fit  { width: 100%; height: auto; display: block; object-fit: cover; }
+.img-caption {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: #8A7060;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  margin-top: 1.5mm;
+}
+
+/* ── Running head ── */
+.rh {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7mm;
+  font-family: var(--sans);
+  font-size: 6pt;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding-bottom: 2mm;
+  border-bottom: 0.3mm solid var(--gold-lt);
+}
+
+/* ── Page number ── */
+.pg {
+  position: absolute;
+  bottom: 9mm;
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: var(--gold-lt);
+  letter-spacing: 2px;
+}
+.pg.l { left: var(--pad); }
+.pg.r { right: var(--pad); }
+
+/* ── Type ── */
+.sec {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding-bottom: 2mm;
+  border-bottom: 0.3mm solid var(--gold-lt);
+  margin-bottom: 4mm;
+}
+.bp { font-size: 9pt; line-height: 1.9; color: var(--ink-m); }
+.bp + .bp { margin-top: 3mm; }
+.hr { height: 0.3mm; background: var(--rule); margin: 4mm 0; }
+.vs { height: 4mm; }
+.vsm { height: 2.5mm; }
+
+/* ── Cover page elements ── */
+.cover-num  { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 4px; color: var(--gold); margin-bottom: 5mm; }
+.cover-meta { font-family: var(--mono); font-size: 7pt; letter-spacing: 1.5px; color: #8A6848; line-height: 1.9; text-align: right; float: right; }
+.name-cn    { font-size: 64pt; font-weight: 900; color: var(--ink); line-height: 0.85; letter-spacing: -2mm; clear: both; }
+.name-en    { font-family: var(--sans); font-size: 7.5pt; letter-spacing: 5px; color: #8A5040; text-transform: uppercase; margin-top: 3mm; }
+.tags       { display: flex; flex-wrap: wrap; gap: 3px; margin: 4mm 0; }
+.tag        { font-family: var(--sans); font-size: 6pt; color: #7A5840; letter-spacing: 1px; text-transform: uppercase; padding: 1px 4px; border-bottom: 0.3mm solid #B09070; }
+.hook       { font-size: 11pt; font-style: italic; color: var(--ink); line-height: 1.6; padding: 3.5mm 3.5mm 3.5mm 5mm; border-left: 1.2mm solid var(--wine); margin-top: 5mm; }
+.ha         { color: var(--wine); font-style: normal; font-weight: 700; }
+
+/* ── Timeline ── */
+.tl { display: grid; grid-template-columns: 14mm 1fr; gap: 2mm 3mm; }
+.ty { font-family: var(--mono); font-size: 7pt; color: var(--wine); font-weight: 700; padding-top: 1px; }
+.tt { font-size: 8.5pt; line-height: 1.7; color: var(--ink-l); }
+
+/* ── Works ── */
+.wh  { font-size: 22pt; font-weight: 700; color: var(--ink); letter-spacing: -0.3mm; margin-bottom: 1mm; }
+.ws  { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 5mm; }
+.wb  { padding: 3.5mm 0; border-top: 0.3mm solid var(--rule); }
+.wb:last-child { border-bottom: 0.3mm solid var(--rule); }
+.wn  { font-family: var(--mono); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold-lt); margin-bottom: 1.5mm; }
+.wc  { font-size: 12pt; font-weight: 700; color: var(--wine); line-height: 1.1; }
+.we  { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin: 1.5mm 0 2mm; }
+.wm  { display: flex; gap: 4mm; margin-bottom: 2mm; flex-wrap: wrap; }
+.wmi { font-family: var(--mono); font-size: 7pt; color: #8A7060; }
+.wmi b { color: var(--ink); font-weight: 700; }
+.wd  { font-size: 8.5pt; line-height: 1.85; color: var(--ink-m); }
+.wf  { float: right; width: 44%; margin: 0 0 3mm 4mm; }
+.cf::after { content: ''; display: table; clear: both; }
+
+/* ── Spotlight ── */
+.sp-box  { background: var(--bg-dk); padding: 5mm; }
+.sp-kick { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: #8A5040; text-transform: uppercase; margin-bottom: 2mm; }
+.sp-t    { font-size: 16pt; font-weight: 700; color: var(--ink); margin-bottom: 1mm; }
+.sp-e    { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; }
+.sp-p    { font-size: 8.5pt; line-height: 1.9; color: var(--ink-m); }
+
+/* ── Stats ── */
+.stats { display: flex; border-top: 0.3mm solid var(--rule); padding-top: 3.5mm; margin-top: 4mm; }
+.si   { flex: 1; }
+.si + .si { border-left: 0.3mm solid var(--rule); padding-left: 5mm; }
+.sn  { font-size: 18pt; font-weight: 700; color: var(--ink); line-height: 1; }
+.sl  { font-family: var(--sans); font-size: 6pt; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; margin-top: 1mm; }
+
+/* ── 2-col grid ── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+
+/* ── Feminist box ── */
+.fb     { background: var(--bg-dk); padding: 4.5mm; }
+.fb-k   { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: #7A5040; text-transform: uppercase; margin-bottom: 2.5mm; }
+.fb-p   { font-size: 9pt; line-height: 1.9; color: var(--ink); }
+.fb-acc { color: var(--wine); font-weight: 700; }
+
+/* ── Awards ── */
+.ag { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 3mm; }
+.ai { padding: 3mm 4mm; background: var(--gold-pl); border-left: 1.5mm solid var(--wine); }
+.ay { font-family: var(--mono); font-size: 7pt; color: var(--wine); font-weight: 700; }
+.at { font-size: 8pt; color: var(--ink-m); margin-top: 1mm; line-height: 1.5; }
+
+/* ── Quote ── */
+.qb  { padding: 4.5mm 0; border-top: 0.3mm solid #B09870; border-bottom: 0.3mm solid #B09870; margin: 4.5mm 0; }
+.qt  { font-size: 10.5pt; font-style: italic; color: var(--ink); line-height: 1.7; }
+.qa  { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); margin-top: 2mm; text-transform: uppercase; }
+.cl  { font-size: 8.5pt; font-style: italic; color: #7A5840; line-height: 1.6; }
+
+/* ── Links ── */
+.lk  { margin-top: 4mm; padding-top: 3.5mm; border-top: 0.3mm solid var(--rule); }
+.lkh { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; }
+.lr  { margin-bottom: 2.5mm; }
+.lt  { font-family: var(--sans); font-size: 6pt; letter-spacing: 1.5px; color: #B09070; text-transform: uppercase; }
+.lu  { font-family: var(--mono); font-size: 8pt; color: var(--wine); text-decoration: none; }
+.lu:hover { text-decoration: underline; }
+.ln  { font-family: var(--mono); font-size: 8pt; color: var(--ink-l); line-height: 1.8; }
+
+/* ── Export hint ── */
+.export-bar {
+  width: 420mm;
+  text-align: center;
+  padding: 10px;
+  background: #2C2418;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--gold-lt);
+}
+.export-bar strong { color: #F0EBE0; }
+</style>
+</head>
+<body>
+
+<div class="export-bar no-print">
+  <strong>导出PDF：</strong>Cmd+P → 存储为PDF → 纸张：A3 → 方向：横向 → 缩放：无 → 取消页眉页脚 → 存储
+</div>
+
+<!-- ════════════════════════════════════════
+     SPREAD 1 · 封面 + 人物介绍
+════════════════════════════════════════ -->
+<div class="spread">
+
+  <!-- LEFT · 封面 -->
+  <div class="page-l">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4mm">
+      <div class="cover-num">02 / 50</div>
+      <div class="cover-meta">1929 —<br>长野县松本市，日本<br><span style="color:var(--wine)">装置·绘画·雕塑</span></div>
+    </div>
+    <div class="name-cn">草间<br>弥生</div>
+    <div class="name-en">Yayoi Kusama</div>
+    <div class="tags">
+      <span class="tag">无限圆点</span>
+      <span class="tag">镜屋装置</span>
+      <span class="tag">自我消融</span>
+      <span class="tag">幻觉与艺术</span>
+      <span class="tag">全球票房最高在世女艺术家</span>
+    </div>
+    <!-- 艺术家照片 -->
+    <div style="width:100%;height:116mm;overflow:hidden;background:#1A1810">
+      <img class="img-fill" src="1.jpg" alt="草间弥生肖像">
+    </div>
+    <div class="img-caption">草间弥生，长野县松本市，1929年生</div>
+    <div class="hook">
+      她把全世界涂满圆点，而那些圆点，原本是她眼睛里无法停止的<span class="ha">幻觉</span>。
+    </div>
+    <div class="pg r">P.01</div>
+  </div>
+
+  <!-- RIGHT · 人物介绍 + 时间轴 -->
+  <div class="page-r">
+    <div class="rh"><span>艺术家</span><span>草间弥生 · Yayoi Kusama</span></div>
+    <div class="sec">她是谁</div>
+    <div class="bp">1929年生于日本长野县松本市，家族经营苗圃和种子农场。童年起便出现幻觉——花朵对她说话，圆点在眼前无限蔓延，她用绘画来抵抗这些入侵的视觉。母亲不支持她创作，会没收她的画；父亲频繁出轨，她被迫目睹，这段创伤的童年直接进入了她此后所有的作品。</div>
+    <div class="bp">1948年赴京都学习传统日本画，却感到窒息。她写信给乔治亚·奥基夫寻求建议，后者鼓励她去美国。1957年，28岁的她带着几百幅画抵达西雅图。她说日本社会"太小、太顺从、太封建、太轻视女性"。</div>
+    <div class="bp">1973年回到日本，1977年起自愿入住东京一家精神病院，至今仍住在那里。每天早上步行去对面的工作室创作——这个选择不是放弃，是她找到的最适合自己的生存方式。</div>
+    <div class="hr"></div>
+    <div class="sec">创作时间轴</div>
+    <div class="tl">
+      <div class="ty">1952</div><div class="tt">在日本举办首次个展；开始《无限网》系列绘画</div>
+      <div class="ty">1957</div><div class="tt">移居纽约，创作网格绘画和软雕塑；影响安迪·沃霍尔等同代人</div>
+      <div class="ty">1965</div><div class="tt">首个《无限镜屋》装置《阳具原野》，镜屋系列由此延续至今</div>
+      <div class="ty">1966</div><div class="tt">威尼斯双年展场外出售镜球装置，被官方驱逐</div>
+      <div class="ty">1973</div><div class="tt">回到日本；1977年起自愿入住东京精神病院</div>
+      <div class="ty">1993</div><div class="tt">代表日本参加第45届威尼斯双年展，获国际广泛关注</div>
+      <div class="ty">2002</div><div class="tt">《消融房间》首次展出，昆士兰美术馆</div>
+      <div class="ty">2006</div><div class="tt">获日本旭日中绶章；美国视觉艺术终身成就奖</div>
+      <div class="ty">2012</div><div class="tt">与Louis Vuitton首次合作；泰特·蓬皮杜·惠特尼全球巡回回顾展</div>
+      <div class="ty">2016</div><div class="tt">获日本最高文化荣誉：文化勋章（Order of Culture）</div>
+      <div class="ty">2017</div><div class="tt">草间弥生美术馆在东京新宿开幕</div>
+      <div class="ty">2025</div><div class="tt">欧洲大型回顾展：Fondation Beyeler → Museum Ludwig → Stedelijk</div>
+    </div>
+    <div class="pg l">P.02</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SPREAD 2 · 核心作品
+════════════════════════════════════════ -->
+<div class="spread">
+
+  <!-- LEFT · 作品1-2 -->
+  <div class="page-l">
+    <div class="rh"><span>核心作品</span><span>草间弥生 · Yayoi Kusama</span></div>
+    <div class="wh">核心作品</div>
+    <div class="ws">Selected Works</div>
+
+    <div class="wb">
+      <div class="wn">WORK 01</div>
+      <div class="cf">
+        <div class="wf">
+          <img class="img-fit" src="2.jpg" alt="无限网系列" style="aspect-ratio:16/9">
+          <div class="img-caption">《无限网》（Infinity Net）系列<br>油彩，画布，1959年至今</div>
+        </div>
+        <div class="wc">《无限网》系列</div>
+        <div class="we">Infinity Net Series · 1959—</div>
+        <div class="wm"><span class="wmi">媒介：<b>油彩，画布</b></span><span class="wmi">最大幅：<b>约10米宽</b></span></div>
+        <div class="wd">抵达纽约后的第一批重要作品。她用细小的弧形笔触密密铺满整张巨幅画布，把无边蔓延的幻觉，用手和笔逐一捕捉、锁住。她的工作影响了安迪·沃霍尔，但这一事实在当时几乎不被承认。</div>
+      </div>
+    </div>
+
+    <div class="wb">
+      <div class="wn">WORK 02</div>
+      <img class="img-fit" src="3.jpg" alt="圆点消融" style="aspect-ratio:16/9;margin-bottom:2mm">
+      <div class="img-caption" style="margin-bottom:2mm">《圆点消融》（Dots Obsession）系列，气球装置，镜面空间，1998年至今</div>
+      <div class="wc">《圆点消融》系列</div>
+      <div class="we">Dots Obsession · 1998—</div>
+      <div class="wm"><span class="wmi">媒介：<b>气球、圆点贴纸、镜面</b></span></div>
+      <div class="wd">圆点气球与镜面空间结合，蔓延至整个展室。观众走进去，自身也被吞没——"自我消融"哲学的空间化呈现。</div>
+    </div>
+
+    <div class="pg l">P.03</div>
+  </div>
+
+  <!-- RIGHT · 作品3 + Spotlight -->
+  <div class="page-r">
+    <div class="rh"><span>核心作品</span><span>草间弥生 · Yayoi Kusama</span></div>
+
+    <div class="wb" style="margin-bottom:5mm">
+      <div class="wn">WORK 03</div>
+      <img class="img-fit" src="4.jpg" alt="南瓜" style="aspect-ratio:16/9;margin-bottom:2mm">
+      <div class="img-caption" style="margin-bottom:2mm">《南瓜》（Pumpkin），钢铁喷漆雕塑，直岛，濑户内海，日本，1994</div>
+      <div class="wc">《南瓜》</div>
+      <div class="we">Pumpkin · 1994—</div>
+      <div class="wm"><span class="wmi">地点：<b>直岛，濑户内海</b></span><span class="wmi">媒介：<b>钢铁，喷漆</b></span></div>
+      <div class="wd">南瓜有"令人安慰的温厚的丑陋"。那些被世界忽视的、不完美的、笨拙的存在，同样值得被放大、被看见。</div>
+    </div>
+
+    <div class="sp-box">
+      <div class="sp-kick">必须知道的作品 · Spotlight</div>
+      <div class="sp-t">《无限镜屋》系列</div>
+      <div class="sp-e">Infinity Mirrored Room · 1965—</div>
+      <div style="width:100%;overflow:hidden;background:#1A1818;margin-bottom:0">
+        <img class="img-fit" src="5.jpg" alt="无限镜屋" style="aspect-ratio:16/9">
+      </div>
+      <div class="img-caption" style="margin-bottom:3mm">《无限镜屋——充满永恒爱意的灵魂》，镜面，LED灯，金属，水，2011，路易斯安那现代艺术馆等多地巡展</div>
+      <div class="sp-p">走进去，四周全是镜子，LED灯泡在镜面里无限反射，你和那些光点一起，无边无际地延伸下去。每位观众只有45秒——进去那一刻，"自我"暂时消失，剩下的只是光和无限。这正是她所说的"自我消融"：把折磨她一生的恐惧，变成礼物，送给每一个走进去的人。</div>
+      <div class="stats">
+        <div class="si"><div class="sn">60+</div><div class="sl">年持续创作</div></div>
+        <div class="si"><div class="sn">30+</div><div class="sl">间镜屋版本</div></div>
+        <div class="si"><div class="sn">570,537</div><div class="sl">NGV墨尔本展观众 2025</div></div>
+      </div>
+    </div>
+
+    <div class="pg r">P.04</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SPREAD 3 · 女性处境 + 荣誉 + 链接
+════════════════════════════════════════ -->
+<div class="spread">
+
+  <!-- LEFT · 消融房间 + 女性处境 -->
+  <div class="page-l">
+    <div class="rh"><span>艺术家</span><span>草间弥生 · Yayoi Kusama</span></div>
+    <div class="sec">《消融房间》与公众参与</div>
+    <div class="bp">《消融房间》（Obliteration Room，2002年至今）：一间全白的房间，观众入场时获赠彩色圆点贴纸，可以贴在任何地方。展览结束时，白色已被彩点完全覆盖——这件作品把"消融"的主动权交给了公众。</div>
+    <div class="vs"></div>
+    <div class="g2">
+      <div>
+        <img class="img-fit" src="6.jpg" alt="消融房间" style="aspect-ratio:16/9">
+        <div class="img-caption">《消融房间》（Obliteration Room）<br>互动装置，昆士兰美术馆，2002年至今</div>
+      </div>
+      <div>
+        <img class="img-fit" src="7.jpg" alt="草间弥生工作室" style="aspect-ratio:16/9">
+        <div class="img-caption">草间弥生工作室，东京新宿<br>精神病院对面，每日步行往返</div>
+      </div>
+    </div>
+    <div class="vs"></div>
+    <div class="fb">
+      <div class="fb-k">她与女性处境</div>
+      <div class="fb-p">她在六十年代的纽约，是一个<span class="fb-acc">日本女性</span>、一个精神状态不稳定的人、一个外来者。她的作品被同时代的男性艺术家借鉴甚至抄袭——安迪·沃霍尔和克莱斯·欧登伯格都承认受到她的影响，但她长期处于边缘，直到八十年代末才重新被国际艺术界认可。<br><br>在纽约，她以裸体行为艺术反对越战，批评者总把注意力放在她"疯狂"上，而不是作品本身。这种双重标准，她经历了一生。</div>
+    </div>
+    <div class="vs"></div>
+    <div class="g2">
+      <div>
+        <img class="img-fit" src="8.jpg" alt="无限镜屋灵魂" style="aspect-ratio:16/9">
+        <div class="img-caption">《无限镜屋——灵魂的百万光年》<br>镜面，LED灯，2013，David Zwirner画廊，纽约</div>
+      </div>
+      <div>
+        <img class="img-fit" src="9.jpg" alt="我永恒的灵魂" style="aspect-ratio:16/9">
+        <div class="img-caption">《我永恒的灵魂》（My Eternal Soul）系列<br>丙烯，画布，2009年至今</div>
+      </div>
+    </div>
+    <div class="pg l">P.05</div>
+  </div>
+
+  <!-- RIGHT · 荣誉 + 引言 + 链接 -->
+  <div class="page-r">
+    <div class="rh"><span>荣誉 &amp; 延伸</span><span>草间弥生 · Yayoi Kusama</span></div>
+    <div class="sec">重要荣誉</div>
+    <div class="ag">
+      <div class="ai"><div class="ay">2006</div><div class="at">日本旭日中绶章；美国视觉艺术终身成就奖</div></div>
+      <div class="ai"><div class="ay">2009</div><div class="at">日本文化功劳者（Person of Cultural Merit）</div></div>
+      <div class="ai"><div class="ay">2016</div><div class="at">日本文化勋章（Order of Culture）最高荣誉</div></div>
+      <div class="ai"><div class="ay">2014—</div><div class="at">《艺术新闻》全球最受欢迎在世艺术家；全球票房最高在世女性艺术家</div></div>
+    </div>
+    <div class="qb">
+      <div class="qt">"我每天都在与痛苦、焦虑和恐惧抗争，唯一能缓解病痛的方法就是不断创作艺术。我沿着艺术的线索，不知为何找到了一条能让自己活下去的路。"</div>
+      <div class="qa">草间弥生 · Yayoi Kusama</div>
+    </div>
+    <div class="cl">她用无数个圆点，把一生的恐惧变成了别人眼里的奇迹。</div>
+    <div class="hr"></div>
+    <div class="lk">
+      <div class="lkh">延伸阅读 &amp; 官方链接</div>
+      <div class="lr"><div class="lt">官方网站</div><a class="lu" href="https://www.yayoikusama.jp" target="_blank">www.yayoikusama.jp</a></div>
+      <div class="lr"><div class="lt">草间弥生美术馆（东京新宿，2017年开幕）</div><a class="lu" href="https://yayoikusamamuseum.jp" target="_blank">yayoikusamamuseum.jp</a></div>
+      <div class="lr"><div class="lt">代理画廊 · David Zwirner</div><a class="lu" href="https://www.davidzwirner.com/artists/yayoi-kusama" target="_blank">davidzwirner.com / yayoi-kusama</a></div>
+      <div class="lr"><div class="lt">代理画廊 · Victoria Miro</div><a class="lu" href="https://www.victoria-miro.com/artists/31/" target="_blank">victoria-miro.com / kusama</a></div>
+      <div class="lr"><div class="lt">代理画廊 · Ota Fine Arts</div><a class="lu" href="https://www.otafinearts.com/artists/72-yayoi-kusama/" target="_blank">otafinearts.com / yayoi-kusama</a></div>
+      <div class="lr"><div class="lt">2025年回顾展 · Fondation Beyeler</div><a class="lu" href="https://www.fondationbeyeler.ch" target="_blank">fondationbeyeler.ch</a></div>
+      <div class="lr"><div class="lt">推荐书目 &amp; 纪录片</div><div class="ln">Infinity Net（自传，草间弥生，2011）<br>Kusama: Infinity（纪录片，Heather Lenz导演，2018）</div></div>
+    </div>
+    <div class="pg r">P.06</div>
+  </div>
+</div>
+
+</body>
+</html>
