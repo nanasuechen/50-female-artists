@@ -2,184 +2,275 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>01 玛丽娜·阿布拉莫维奇 · 50位当代女性艺术家</title>
-<link rel="stylesheet" href="../../shared/style.css">
+<title>01 玛丽娜·阿布拉莫维奇 · 50位当代女性艺术家 · A3画册版</title>
 <style>
-/* ── Page 1 cover layout ── */
-.p1-num  { position:absolute; top:14mm; left:var(--pad); font-family:var(--mono); font-size:8pt; letter-spacing:4px; color:var(--gold); }
-.p1-meta { position:absolute; top:14mm; right:var(--pad); text-align:right; font-family:var(--mono); font-size:7pt; letter-spacing:1.5px; color:#8A6848; line-height:2; }
-.p1-name-block { position:absolute; top:30mm; left:var(--pad); right:var(--pad); }
-.p1-name-cn { font-size:68pt; font-weight:900; color:var(--ink); line-height:0.85; letter-spacing:-2mm; }
-.p1-name-en { font-family:var(--sans); font-size:8pt; letter-spacing:5px; color:#8A5040; text-transform:uppercase; margin-top:4mm; }
-.p1-photo { position:absolute; top:80mm; left:var(--pad); right:var(--pad); height:110mm; overflow:hidden; }
-.p1-caption-area { position:absolute; top:193mm; left:var(--pad); right:var(--pad); }
-.p1-hook { position:absolute; top:206mm; left:var(--pad); right:var(--pad); padding:4mm 4mm 4mm 6mm; border-left:1.2mm solid var(--wine); }
-.p1-hook-text { font-size:11.5pt; font-style:italic; color:var(--ink); line-height:1.6; }
-.hook-accent { color:var(--wine); font-style:normal; font-weight:700; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;700&display=swap');
 
-/* ── Page inner wrapper ── */
-.inner { position:absolute; top:24mm; left:var(--pad); right:var(--pad); bottom:18mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ── Page 4 spotlight hero ── */
-.hero { position:absolute; top:0; left:0; right:0; height:95mm; overflow:hidden; background:var(--ink); }
-.hero-caption { position:absolute; top:98mm; left:var(--pad); right:var(--pad); }
-.spotlight-body { position:absolute; top:110mm; left:var(--pad); right:var(--pad); }
-.stat-strip-abs { position:absolute; bottom:28mm; left:var(--pad); right:var(--pad); }
+@page { size: 420mm 297mm landscape; margin: 0; }
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body { width: 420mm; height: 297mm; }
+  .no-print { display: none !important; }
+  .spread { page-break-after: always; page-break-inside: avoid; }
+  .spread:last-child { page-break-after: avoid; }
+}
+
+:root {
+  --bg:      #F2EDE4;
+  --bg-dk:   #D8D0C0;
+  --ink:     #1A1A18;
+  --ink-m:   #2C2820;
+  --ink-l:   #3A3828;
+  --gold:    #9A7B5A;
+  --gold-lt: #C0AA88;
+  --gold-pl: #E8E0D0;
+  --wine:    #8B2A35;
+  --rule:    #C8B89A;
+  --mono:    'Courier New', monospace;
+  --serif:   'Noto Serif SC', Georgia, serif;
+  --sans:    'Noto Sans SC', sans-serif;
+  --pad:     14mm;
+}
+
+body { font-family: var(--serif); background: #A8A098; width: 420mm; margin: 0 auto; }
+
+.spread {
+  display: grid;
+  grid-template-columns: 210mm 210mm;
+  width: 420mm;
+  height: 297mm;
+  background: var(--bg);
+  margin: 0 auto 4px;
+  overflow: hidden;
+}
+
+.page-l {
+  width: 210mm; height: 297mm;
+  padding: var(--pad);
+  position: relative; overflow: hidden;
+  border-right: 0.3mm solid var(--rule);
+  background: var(--bg);
+}
+.page-r {
+  width: 210mm; height: 297mm;
+  padding: var(--pad);
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+
+.img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-fit  { width: 100%; height: auto; display: block; object-fit: cover; }
+.img-caption { font-family: var(--mono); font-size: 6pt; color: #8A7060; letter-spacing: 0.5px; line-height: 1.5; margin-top: 1.5mm; }
+
+.rh { display: flex; justify-content: space-between; margin-bottom: 7mm; font-family: var(--sans); font-size: 6pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; padding-bottom: 2mm; border-bottom: 0.3mm solid var(--gold-lt); }
+
+.pg { position: absolute; bottom: 9mm; font-family: var(--mono); font-size: 7pt; color: var(--gold-lt); letter-spacing: 2px; }
+.pg.l { left: var(--pad); }
+.pg.r { right: var(--pad); }
+
+.sec { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; padding-bottom: 2mm; border-bottom: 0.3mm solid var(--gold-lt); margin-bottom: 4mm; }
+.bp { font-size: 9pt; line-height: 1.9; color: var(--ink-m); }
+.bp + .bp { margin-top: 3mm; }
+.hr { height: 0.3mm; background: var(--rule); margin: 4mm 0; }
+.vs { height: 4mm; }
+
+.cover-num  { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 4px; color: var(--gold); }
+.cover-meta { font-family: var(--mono); font-size: 7pt; letter-spacing: 1.5px; color: #8A6848; line-height: 1.9; text-align: right; }
+.name-cn    { font-size: 56pt; font-weight: 900; color: var(--ink); line-height: 0.85; letter-spacing: -1.5mm; margin-top: 4mm; }
+.name-en    { font-family: var(--sans); font-size: 7.5pt; letter-spacing: 5px; color: #8A5040; text-transform: uppercase; margin-top: 3mm; }
+.tags       { display: flex; flex-wrap: wrap; gap: 3px; margin: 4mm 0; }
+.tag        { font-family: var(--sans); font-size: 6pt; color: #7A5840; letter-spacing: 1px; text-transform: uppercase; padding: 1px 4px; border-bottom: 0.3mm solid #B09070; }
+.hook       { font-size: 11pt; font-style: italic; color: var(--ink); line-height: 1.6; padding: 3.5mm 3.5mm 3.5mm 5mm; border-left: 1.2mm solid var(--wine); margin-top: 5mm; }
+.ha         { color: var(--wine); font-style: normal; font-weight: 700; }
+
+.tl { display: grid; grid-template-columns: 16mm 1fr; gap: 2mm 3mm; }
+.ty { font-family: var(--mono); font-size: 7pt; color: var(--wine); font-weight: 700; padding-top: 1px; }
+.tt { font-size: 8.5pt; line-height: 1.7; color: var(--ink-l); }
+
+.wh  { font-size: 22pt; font-weight: 700; color: var(--ink); letter-spacing: -0.3mm; margin-bottom: 1mm; }
+.ws  { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 5mm; }
+.wb  { padding: 3.5mm 0; border-top: 0.3mm solid var(--rule); }
+.wb:last-child { border-bottom: 0.3mm solid var(--rule); }
+.wn  { font-family: var(--mono); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold-lt); margin-bottom: 1.5mm; }
+.wc  { font-size: 12pt; font-weight: 700; color: var(--wine); line-height: 1.1; }
+.we  { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin: 1.5mm 0 2mm; }
+.wm  { display: flex; gap: 4mm; margin-bottom: 2mm; flex-wrap: wrap; }
+.wmi { font-family: var(--mono); font-size: 7pt; color: #8A7060; }
+.wmi b { color: var(--ink); font-weight: 700; }
+.wd  { font-size: 8.5pt; line-height: 1.85; color: var(--ink-m); }
+.wf  { float: right; width: 44%; margin: 0 0 3mm 4mm; }
+.cf::after { content: ''; display: table; clear: both; }
+
+.sp-box  { background: var(--bg-dk); padding: 5mm; }
+.sp-kick { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: #8A5040; text-transform: uppercase; margin-bottom: 2mm; }
+.sp-t    { font-size: 16pt; font-weight: 700; color: var(--ink); margin-bottom: 1mm; }
+.sp-e    { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; }
+.sp-p    { font-size: 8.5pt; line-height: 1.9; color: var(--ink-m); }
+
+.stats { display: flex; border-top: 0.3mm solid var(--rule); padding-top: 3.5mm; margin-top: 4mm; }
+.si    { flex: 1; }
+.si + .si { border-left: 0.3mm solid var(--rule); padding-left: 5mm; }
+.sn  { font-size: 18pt; font-weight: 700; color: var(--ink); line-height: 1; }
+.sl  { font-family: var(--sans); font-size: 6pt; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; margin-top: 1mm; }
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+
+.fb     { background: var(--bg-dk); padding: 4.5mm; }
+.fb-k   { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: #7A5040; text-transform: uppercase; margin-bottom: 2.5mm; }
+.fb-p   { font-size: 9pt; line-height: 1.9; color: var(--ink); }
+.fb-acc { color: var(--wine); font-weight: 700; }
+
+.ag { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 3mm; }
+.ai { padding: 3mm 4mm; background: var(--gold-pl); border-left: 1.5mm solid var(--wine); }
+.ay { font-family: var(--mono); font-size: 7pt; color: var(--wine); font-weight: 700; }
+.at { font-size: 8pt; color: var(--ink-m); margin-top: 1mm; line-height: 1.5; }
+
+.qb { padding: 4.5mm 0; border-top: 0.3mm solid #B09870; border-bottom: 0.3mm solid #B09870; margin: 4.5mm 0; }
+.qt { font-size: 10.5pt; font-style: italic; color: var(--ink); line-height: 1.7; }
+.qa { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 2px; color: var(--gold); margin-top: 2mm; text-transform: uppercase; }
+.cl { font-size: 8.5pt; font-style: italic; color: #7A5840; line-height: 1.6; }
+
+.lk  { margin-top: 4mm; padding-top: 3.5mm; border-top: 0.3mm solid var(--rule); }
+.lkh { font-family: var(--sans); font-size: 6.5pt; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 3mm; }
+.lr  { margin-bottom: 2.5mm; }
+.lt  { font-family: var(--sans); font-size: 6pt; letter-spacing: 1.5px; color: #B09070; text-transform: uppercase; }
+.lu  { font-family: var(--mono); font-size: 8pt; color: var(--wine); text-decoration: none; }
+.lu:hover { text-decoration: underline; }
+.ln  { font-family: var(--mono); font-size: 8pt; color: var(--ink-l); line-height: 1.8; }
+
+.export-bar { width: 420mm; text-align: center; padding: 10px; background: #2C2418; font-family: var(--mono); font-size: 10px; color: var(--gold-lt); }
+.export-bar strong { color: #F0EBE0; }
 </style>
 </head>
 <body>
 
-<!-- ══ PAGE 1 · 封面 ══ -->
-<div class="page" style="height:297mm">
-  <div class="p1-num">01 / 50</div>
-  <div class="p1-meta">1946 —<br>贝尔格莱德，南斯拉夫<br><span style="color:var(--wine)">行为艺术</span></div>
+<div class="export-bar no-print">
+  <strong>导出PDF：</strong>Cmd+P → 存储为PDF → 纸张：A3 → 方向：横向 → 缩放：无 → 取消页眉页脚 → 存储
+</div>
 
-  <div class="p1-name-block">
-    <div class="p1-name-cn">玛丽娜·<br>阿布拉<br>莫维奇</div>
-    <div class="p1-name-en">Marina Abramović</div>
-    <div class="tags" style="margin-top:4mm">
+<!-- ════ SPREAD 1 · 封面 + 人物介绍 ════ -->
+<div class="spread">
+
+  <div class="page-l">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4mm">
+      <div class="cover-num">01 / 50</div>
+      <div class="cover-meta">1946 —<br>贝尔格莱德，南斯拉夫<br><span style="color:var(--wine)">行为艺术</span></div>
+    </div>
+    <div class="name-cn">玛丽娜·<br>阿布拉<br>莫维奇</div>
+    <div class="name-en">Marina Abramović</div>
+    <div class="tags">
       <span class="tag">行为艺术祖母</span>
       <span class="tag">身体极限</span>
       <span class="tag">观众参与</span>
       <span class="tag">持续性表演</span>
       <span class="tag">南斯拉夫</span>
     </div>
-  </div>
-
-  <div class="p1-photo">
-    <img class="img-fill" src="1.jpg" alt="玛丽娜·阿布拉莫维奇肖像">
-  </div>
-  <div class="p1-caption-area">
-    <div class="img-caption">玛丽娜·阿布拉莫维奇，贝尔格莱德，1946年生</div>
-  </div>
-  <div class="p1-hook">
-    <div class="p1-hook-text">她在MoMA坐了三个月，什么都没做，却让无数人当场<span class="hook-accent">痛哭</span>。</div>
-  </div>
-
-  <div class="pg-num r">P.01</div>
-</div>
-
-<!-- ══ PAGE 2 · 人物介绍 + 时间轴 ══ -->
-<div class="page" style="height:297mm">
-  <div class="running-head"><span class="rh">艺术家</span><span class="rh">玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
-  <div class="inner">
-    <div class="sec-label">她是谁</div>
-    <div class="body-p">1946年生于贝尔格莱德，父母皆是南斯拉夫游击队高级军官，家庭以军事化方式管理。她在东正教祖母处度过幼年，在铁托时代"红色资产阶级"氛围中长大——特权与压抑并存。母亲要求她29岁以前每晚十点必须到家，但正是在这期间，她完成了那些最极端的身体行为作品。</div>
-    <div class="body-p">她在贝尔格莱德美术学院受苏派绘画训练（1965—1970），后赴萨格勒布完成研究生课程（1972）。1976年移居阿姆斯特丹，认识了德国行为艺术家乌雷（Ulay），两人既是情侣也是艺术拍档，共同创作长达12年。</div>
-    <div class="body-p">她自称"行为艺术的祖母"，却拒绝"女性主义艺术家"的标签——她说艺术必须是普世的。但她用自己的身体提出的问题，比任何宣言都更直接地触碰了女性处境。</div>
-
-    <div class="vspace-m"></div>
-    <div class="hr"></div>
-    <div class="vspace-m"></div>
-
-    <div class="sec-label">创作时间轴</div>
-    <div class="tl-grid">
-      <div class="tl-year">1973</div><div class="tl-text">《韵律10》，爱丁堡，用刀扎指缝至流血；开始"韵律"系列</div>
-      <div class="tl-year">1974</div><div class="tl-text">《韵律5》躺进燃烧五芒星；《韵律0》将身体完全交由观众处置</div>
-      <div class="tl-year">1976—88</div><div class="tl-text">与乌雷合作，《海上夜航》《情人·长城》等系列</div>
-      <div class="tl-year">1988</div><div class="tl-text">《情人·长城行走》，各自从山海关、嘉峪关出发，相向而行后分手</div>
-      <div class="tl-year">1997</div><div class="tl-text">《巴尔干巴洛克》，威尼斯双年展金狮奖最佳艺术家</div>
-      <div class="tl-year">2010</div><div class="tl-text">《艺术家在现场》，MoMA，连续3个月，打破美术馆观众纪录</div>
-      <div class="tl-year">2012</div><div class="tl-text">创立Marina Abramović Institute（MAI），支持持续性表演艺术</div>
-      <div class="tl-year">2014</div><div class="tl-text">《512小时》，蛇形画廊，伦敦，连续3个月</div>
-      <div class="tl-year">2023</div><div class="tl-text">皇家艺术学院个展，首位在主展厅举办展览的女性艺术家</div>
-      <div class="tl-year">2026</div><div class="tl-text">威尼斯学院美术馆个展，该馆275年历史中首位在世女性艺术家</div>
+    <div style="width:100%;height:108mm;overflow:hidden;background:#1A1410">
+      <img class="img-fill" src="1.jpg" alt="玛丽娜·阿布拉莫维奇肖像">
     </div>
+    <div class="img-caption">玛丽娜·阿布拉莫维奇，贝尔格莱德，1946年生</div>
+    <div class="hook">她在MoMA坐了三个月，什么都没做，却让无数人当场<span class="ha">痛哭</span>。</div>
+    <div class="pg r">P.01</div>
   </div>
-  <div class="pg-num l">P.02</div>
-  <div class="pg-num r">玛丽娜·阿布拉莫维奇</div>
+
+  <div class="page-r">
+    <div class="rh"><span>艺术家</span><span>玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
+    <div class="sec">她是谁</div>
+    <div class="bp">1946年生于贝尔格莱德，父母皆是南斯拉夫游击队高级军官，家庭以军事化方式管理。她在东正教祖母处度过幼年，在铁托时代"红色资产阶级"氛围中长大——特权与压抑并存。母亲要求她29岁以前每晚十点必须到家，但正是在这期间，她完成了那些最极端的身体行为作品。</div>
+    <div class="bp">她在贝尔格莱德美术学院受苏派绘画训练（1965—1970），后赴萨格勒布完成研究生课程（1972）。1976年移居阿姆斯特丹，认识了德国行为艺术家乌雷（Ulay），两人既是情侣也是艺术拍档，共同创作长达12年。</div>
+    <div class="bp">她自称"行为艺术的祖母"，却拒绝"女性主义艺术家"的标签——她说艺术必须是普世的。但她用自己的身体提出的问题，比任何宣言都更直接地触碰了女性处境。</div>
+    <div class="hr"></div>
+    <div class="sec">创作时间轴</div>
+    <div class="tl">
+      <div class="ty">1973</div><div class="tt">《韵律10》，爱丁堡，用刀扎指缝至流血；开始"韵律"系列</div>
+      <div class="ty">1974</div><div class="tt">《韵律5》躺进燃烧五芒星；《韵律0》将身体完全交由观众处置</div>
+      <div class="ty">1976—88</div><div class="tt">与乌雷合作，《海上夜航》《情人·长城》等系列</div>
+      <div class="ty">1988</div><div class="tt">《情人·长城行走》，各自从山海关、嘉峪关出发，相向而行后分手</div>
+      <div class="ty">1997</div><div class="tt">《巴尔干巴洛克》，威尼斯双年展金狮奖最佳艺术家</div>
+      <div class="ty">2010</div><div class="tt">《艺术家在现场》，MoMA，连续3个月，打破美术馆观众纪录</div>
+      <div class="ty">2012</div><div class="tt">创立Marina Abramović Institute（MAI），支持持续性表演艺术</div>
+      <div class="ty">2014</div><div class="tt">《512小时》，蛇形画廊，伦敦</div>
+      <div class="ty">2023</div><div class="tt">皇家艺术学院个展，首位在主展厅举办展览的女性艺术家</div>
+      <div class="ty">2026</div><div class="tt">威尼斯学院美术馆个展，该馆275年历史中首位在世女性艺术家</div>
+    </div>
+    <div class="pg l">P.02</div>
+  </div>
 </div>
 
-<!-- ══ PAGE 3 · 核心作品 ══ -->
-<div class="page" style="height:297mm">
-  <div class="running-head"><span class="rh">核心作品</span><span class="rh">玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
-  <div class="inner">
-    <div class="works-title">核心作品</div>
-    <div class="works-sub">Selected Works</div>
+<!-- ════ SPREAD 2 · 核心作品 ════ -->
+<div class="spread">
 
-    <div class="work-block">
-      <div class="work-num">WORK 01</div>
+  <div class="page-l">
+    <div class="rh"><span>核心作品</span><span>玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
+    <div class="wh">核心作品</div>
+    <div class="ws">Selected Works</div>
+
+    <div class="wb">
+      <div class="wn">WORK 01</div>
       <div class="cf">
-        <div class="work-float">
+        <div class="wf">
           <img class="img-fit" src="2.jpg" alt="韵律0" style="aspect-ratio:16/9">
           <div class="img-caption">《韵律0》，行为艺术<br>那不勒斯，1974</div>
         </div>
-        <div class="work-name-cn">《韵律0》</div>
-        <div class="work-name-en">Rhythm 0 · 1974</div>
-        <div class="work-meta">
-          <span class="wm">地点：<b>那不勒斯</b></span>
-          <span class="wm">时长：<b>6小时</b></span>
-        </div>
-        <div class="work-desc">桌上摆放76件物品——玫瑰、蜂蜜、剪刀、刀、一把上膛的手枪。她站在那里，任由观众对她做任何事。六小时后，当她作为人而非道具重新出现时，施暴者四散逃离。她当晚长出白发。</div>
+        <div class="wc">《韵律0》</div>
+        <div class="we">Rhythm 0 · 1974</div>
+        <div class="wm"><span class="wmi">地点：<b>那不勒斯</b></span><span class="wmi">时长：<b>6小时</b></span></div>
+        <div class="wd">桌上摆放76件物品——玫瑰、蜂蜜、剪刀、刀、一把上膛的手枪。她站在那里，任由观众对她做任何事。六小时后，当她作为人而非道具重新出现时，施暴者四散逃离。她当晚长出白发。</div>
       </div>
     </div>
 
-    <div class="work-block">
-      <div class="work-num">WORK 02</div>
+    <div class="wb">
+      <div class="wn">WORK 02</div>
       <img class="img-fit" src="3.jpg" alt="情人·长城行走" style="aspect-ratio:16/9;margin-bottom:2mm">
-      <div class="img-caption" style="margin-bottom:2.5mm">《情人·长城行走》，行为艺术，中国长城，1988</div>
-      <div class="work-name-cn">《情人·长城行走》</div>
-      <div class="work-name-en">The Lovers · The Great Wall Walk · 1988</div>
-      <div class="work-meta">
-        <span class="wm">路程：<b>2500公里</b></span>
-        <span class="wm">历时：<b>90天</b></span>
-        <span class="wm">与乌雷合作</span>
-      </div>
-      <div class="work-desc">她从山海关出发，乌雷从嘉峪关出发，相向而行，在陕西神木汇合，然后分手。为进入当时封闭的中国，她们从1984年开始争取，历时四年。项目结束三个月后，中国正式对外开放。</div>
+      <div class="img-caption" style="margin-bottom:2mm">《情人·长城行走》，行为艺术，中国长城，1988</div>
+      <div class="wc">《情人·长城行走》</div>
+      <div class="we">The Lovers · The Great Wall Walk · 1988</div>
+      <div class="wm"><span class="wmi">路程：<b>2500公里</b></span><span class="wmi">历时：<b>90天</b></span><span class="wmi">与乌雷合作</span></div>
+      <div class="wd">她从山海关出发，乌雷从嘉峪关出发，在陕西神木汇合，然后分手。为进入当时封闭的中国，从1984年开始争取，历时四年。项目结束三个月后，中国正式对外开放。</div>
     </div>
 
-    <div class="work-block">
-      <div class="work-num">WORK 03</div>
+    <div class="wb">
+      <div class="wn">WORK 03</div>
       <img class="img-fit" src="4.jpg" alt="巴尔干巴洛克" style="aspect-ratio:16/9;margin-bottom:2mm">
-      <div class="img-caption" style="margin-bottom:2.5mm">《巴尔干巴洛克》，行为装置，威尼斯双年展，1997</div>
-      <div class="work-name-cn">《巴尔干巴洛克》</div>
-      <div class="work-name-en">Balkan Baroque · 1997</div>
-      <div class="work-meta">
-        <span class="wm">地点：<b>威尼斯双年展</b></span>
-        <span class="wm">时长：<b>4天×6小时</b></span>
-        <span class="wm" style="color:var(--wine)">金狮奖</span>
+      <div class="img-caption" style="margin-bottom:2mm">《巴尔干巴洛克》，行为装置，威尼斯双年展，1997</div>
+      <div class="wc">《巴尔干巴洛克》</div>
+      <div class="we">Balkan Baroque · 1997</div>
+      <div class="wm"><span class="wmi">地点：<b>威尼斯双年展</b></span><span class="wmi">时长：<b>4天×6小时</b></span><span class="wmi" style="color:var(--wine)">金狮奖</span></div>
+      <div class="wd">她在2500根带血牛骨中坐下，边清洗骨头边唱南斯拉夫民谣。前南斯拉夫战争正酣。这是挽歌，是控诉，也是对一个已消亡的祖国的哀悼。</div>
+    </div>
+
+    <div class="pg l">P.03</div>
+  </div>
+
+  <div class="page-r">
+    <div class="rh"><span>核心作品</span><span>玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
+
+    <div class="sp-box" style="margin-bottom:5mm">
+      <div class="sp-kick">必须知道的作品 · Spotlight</div>
+      <div class="sp-t">《艺术家在现场》</div>
+      <div class="sp-e">The Artist Is Present · 2010 · MoMA, New York</div>
+      <div style="width:100%;overflow:hidden;background:#1A1818">
+        <img class="img-fit" src="5.jpg" alt="艺术家在现场" style="aspect-ratio:16/9">
       </div>
-      <div class="work-desc">她在2500根带血牛骨中坐下，边清洗骨头边唱南斯拉夫民谣。前南斯拉夫战争正酣。这是挽歌，是控诉，也是对一个已消亡的祖国的哀悼。</div>
+      <div class="img-caption" style="margin-bottom:3mm">《艺术家在现场》，行为艺术，MoMA纽约，2010</div>
+      <div class="sp-p">2010年，她在MoMA大厅中央放一张桌子，坐下来，然后在整整三个月里每天重复这个动作。任何观众都可以在她对面坐下，和她对视，不限时间。排队的人绕满整个街区，坐下后大哭的人比比皆是。<br><br>当年分手多年的乌雷以普通观众身份排队入场，坐到她对面——玛丽娜睁开眼睛，当场破例伸出双手。那场展览打破MoMA历史观展纪录。</div>
+      <div class="stats">
+        <div class="si"><div class="sn">736</div><div class="sl">对坐者人数</div></div>
+        <div class="si"><div class="sn">3</div><div class="sl">个月连续</div></div>
+        <div class="si"><div class="sn">50+</div><div class="sl">年创作生涯</div></div>
+      </div>
     </div>
-  </div>
-  <div class="pg-num l">P.03</div>
-</div>
 
-<!-- ══ PAGE 4 · Spotlight ══ -->
-<div class="page" style="height:297mm">
-  <div class="hero">
-    <img class="img-fill" src="5.jpg" alt="艺术家在现场">
-  </div>
-  <div class="hero-caption">
-    <div class="img-caption">《艺术家在现场》，行为艺术，MoMA纽约，2010</div>
-  </div>
-  <div class="spotlight-body">
-    <div class="sp-kicker">必须知道的作品 · Spotlight</div>
-    <div class="sp-title">《艺术家在现场》</div>
-    <div class="sp-en">The Artist Is Present · 2010 · MoMA, New York</div>
-    <div class="sp-text">2010年，她在MoMA大厅中央放一张桌子，坐下来，然后在整整三个月里每天重复这个动作。任何观众都可以在她对面坐下，和她对视，不限时间。<br><br>这件作品没有语言，没有表演，没有剧情。然而排队的人绕满整个街区，有人从凌晨开始等候，坐下后大哭的人比比皆是。<br><br>当年分手多年的乌雷以普通观众身份排队入场，坐到她对面——玛丽娜睁开眼睛，当场破例伸出双手。那场展览打破MoMA历史观展纪录。</div>
-  </div>
-  <div class="stat-strip-abs">
-    <div class="stat-strip">
-      <div class="stat-item"><div class="stat-n">736</div><div class="stat-l">对坐者人数</div></div>
-      <div class="stat-item"><div class="stat-n">3</div><div class="stat-l">个月连续</div></div>
-      <div class="stat-item"><div class="stat-n">50+</div><div class="stat-l">年创作生涯</div></div>
-    </div>
-  </div>
-  <div class="pg-num l">P.04</div>
-  <div class="pg-num r">玛丽娜·阿布拉莫维奇</div>
-</div>
-
-<!-- ══ PAGE 5 · 方法论 + 女性处境 ══ -->
-<div class="page" style="height:297mm">
-  <div class="running-head"><span class="rh">艺术家</span><span class="rh">玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
-  <div class="inner">
-    <div class="sec-label">方法论</div>
-    <div class="body-p">她开创"阿布拉莫维奇方法"（Abramović Method）——通过静止、凝视、极简动作训练感知力，训练人对"当下时刻"的承受力。现通过MAI研究院向全球开放工作坊。</div>
-
-    <div class="vspace-m"></div>
-    <div class="img-2col">
+    <div class="sec">方法论</div>
+    <div class="bp" style="font-size:8.5pt">她开创"阿布拉莫维奇方法"（Abramović Method）——通过静止、凝视、极简动作训练感知力，训练人对"当下时刻"的承受力。现通过MAI研究院向全球开放工作坊。</div>
+    <div class="vs"></div>
+    <div class="g2">
       <div>
         <img class="img-fit" src="6.jpg" alt="工作坊现场" style="aspect-ratio:16/9">
         <div class="img-caption">Cleaning the House工作坊现场<br>Marina Abramović Institute，希腊卡耶斯，2023</div>
@@ -190,14 +281,31 @@
       </div>
     </div>
 
-    <div class="vspace-m"></div>
-    <div class="feminist-box">
-      <div class="fb-kicker">她与女性处境</div>
-      <div class="fb-text">她抗拒"女性主义艺术家"的标签，说艺术必须是普世的。但她职业生涯中真正颠覆性的一点是——她把一个<span class="fb-accent">女性的身体</span>从"被凝视的对象"变成了"主动发问的工具"。<br><br>《韵律0》里那些拿刀伤害她的观众，暴露的是什么？是人性，还是那种长期以来对女性身体的支配感，一旦被"艺术"合法化就立刻爆发？她不说，但她把问题放在那里。</div>
+    <div class="pg r">P.04</div>
+  </div>
+</div>
+
+<!-- ════ SPREAD 3 · 女性处境 + 荣誉 + 链接 ════ -->
+<div class="spread">
+
+  <div class="page-l">
+    <div class="rh"><span>艺术家</span><span>玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
+
+    <div class="fb" style="margin-bottom:5mm">
+      <div class="fb-k">她与女性处境</div>
+      <div class="fb-p">她抗拒"女性主义艺术家"的标签，说艺术必须是普世的。但她职业生涯中真正颠覆性的一点是——她把一个<span class="fb-acc">女性的身体</span>从"被凝视的对象"变成了"主动发问的工具"。<br><br>《韵律0》里那些拿刀伤害她的观众，暴露的是什么？是人性，还是那种长期以来对女性身体的支配感，一旦被"艺术"合法化就立刻爆发？她不说，但她把问题放在那里。</div>
     </div>
 
-    <div class="vspace-m"></div>
-    <div class="img-2col">
+    <div class="sec">重要荣誉</div>
+    <div class="ag">
+      <div class="ai"><div class="ay">1997</div><div class="at">威尼斯双年展金狮奖最佳艺术家</div></div>
+      <div class="ai"><div class="ay">2006</div><div class="at">纽约艺评家协会最佳时基艺术奖</div></div>
+      <div class="ai"><div class="ay">2023</div><div class="at">皇家艺术学院：首位主展厅个展女性</div></div>
+      <div class="ai"><div class="ay">2025</div><div class="at">日本皇室世界文化奖 Praemium Imperiale</div></div>
+    </div>
+
+    <div class="vs"></div>
+    <div class="g2">
       <div>
         <img class="img-fit" src="8.jpg" alt="韵律5" style="aspect-ratio:16/9">
         <div class="img-caption">《韵律5》，行为艺术<br>贝尔格莱德，1974</div>
@@ -207,44 +315,33 @@
         <div class="img-caption">《海上夜航》，与乌雷合作<br>1981—1987</div>
       </div>
     </div>
+
+    <div class="pg l">P.05</div>
   </div>
-  <div class="pg-num l">P.05</div>
-</div>
 
-<!-- ══ PAGE 6 · 荣誉 + 引言 + 链接 ══ -->
-<div class="page" style="height:297mm">
-  <div class="running-head"><span class="rh">荣誉 &amp; 延伸</span><span class="rh">玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
-  <div class="inner">
-    <div class="sec-label">重要荣誉</div>
-    <div class="awards-grid">
-      <div class="award-item"><div class="award-yr">1997</div><div class="award-txt">威尼斯双年展金狮奖最佳艺术家</div></div>
-      <div class="award-item"><div class="award-yr">2006</div><div class="award-txt">纽约艺评家协会最佳时基艺术奖</div></div>
-      <div class="award-item"><div class="award-yr">2023</div><div class="award-txt">皇家艺术学院：首位主展厅个展女性</div></div>
-      <div class="award-item"><div class="award-yr">2025</div><div class="award-txt">日本皇室世界文化奖 Praemium Imperiale</div></div>
+  <div class="page-r">
+    <div class="rh"><span>荣誉 &amp; 延伸</span><span>玛丽娜·阿布拉莫维奇 · Marina Abramović</span></div>
+
+    <div class="qb">
+      <div class="qt">"艺术家必须美丽，艺术家必须勇敢。你要有能量获得观众的注意力，使他们投入其中感知你——而这一切必须是将自己全身心抛出的那个勇敢的人才能做到。"</div>
+      <div class="qa">Marina Abramović</div>
     </div>
+    <div class="cl">她用自己的身体，把"在场"变成了一门艺术。用沉默，打开了无数人关闭的内心。</div>
 
-    <div class="quote-wrap">
-      <div class="q-text">"艺术家必须美丽，艺术家必须勇敢。你要有能量获得观众的注意力，使他们投入其中感知你——而这一切必须是将自己全身心抛出的那个勇敢的人才能做到。"</div>
-      <div class="q-attr">Marina Abramović</div>
-    </div>
-    <div class="closing-line">她用自己的身体，把"在场"变成了一门艺术。用沉默，打开了无数人关闭的内心。</div>
-
-    <div class="vspace-m"></div>
     <div class="hr"></div>
-    <div class="vspace-m"></div>
 
-    <div class="links-section">
-      <div class="links-kicker">延伸阅读 &amp; 官方链接</div>
-      <div class="link-row"><div class="link-type">官方网站</div><a class="link-url" href="http://www.marinaabramovic.com" target="_blank">www.marinaabramovic.com</a></div>
-      <div class="link-row"><div class="link-type">Marina Abramović Institute</div><a class="link-url" href="https://www.mai.art" target="_blank">www.mai.art</a></div>
-      <div class="link-row"><div class="link-type">代理画廊 · Lisson Gallery</div><a class="link-url" href="https://www.lissongallery.com/artists/marina-abramovic" target="_blank">lissongallery.com / marina-abramovic</a></div>
-      <div class="link-row"><div class="link-type">艺术家档案 · Artnet</div><a class="link-url" href="https://www.artnet.com/artists/marina-abramovic/" target="_blank">artnet.com / artists / marina-abramovic</a></div>
-      <div class="link-row"><div class="link-type">2023年皇家艺术学院回顾展</div><a class="link-url" href="https://www.royalacademy.org.uk/exhibition/marina-abramovic" target="_blank">royalacademy.org.uk / marina-abramovic</a></div>
-      <div class="link-row"><div class="link-type">推荐书目</div><div class="link-note">Walk Through Walls（回忆录，2016）<br>When Marina Abramović Dies（传记，James Wescott，2010）</div></div>
+    <div class="lk">
+      <div class="lkh">延伸阅读 &amp; 官方链接</div>
+      <div class="lr"><div class="lt">官方网站</div><a class="lu" href="http://www.marinaabramovic.com" target="_blank">www.marinaabramovic.com</a></div>
+      <div class="lr"><div class="lt">Marina Abramović Institute</div><a class="lu" href="https://www.mai.art" target="_blank">www.mai.art</a></div>
+      <div class="lr"><div class="lt">代理画廊 · Lisson Gallery</div><a class="lu" href="https://www.lissongallery.com/artists/marina-abramovic" target="_blank">lissongallery.com / marina-abramovic</a></div>
+      <div class="lr"><div class="lt">艺术家档案 · Artnet</div><a class="lu" href="https://www.artnet.com/artists/marina-abramovic/" target="_blank">artnet.com / artists / marina-abramovic</a></div>
+      <div class="lr"><div class="lt">2023年皇家艺术学院回顾展</div><a class="lu" href="https://www.royalacademy.org.uk/exhibition/marina-abramovic" target="_blank">royalacademy.org.uk / marina-abramovic</a></div>
+      <div class="lr"><div class="lt">推荐书目</div><div class="ln">Walk Through Walls（回忆录，2016）<br>When Marina Abramović Dies（传记，James Wescott，2010）</div></div>
     </div>
+
+    <div class="pg r">P.06</div>
   </div>
-  <div class="pg-num l">P.06</div>
-  <div class="pg-num r">玛丽娜·阿布拉莫维奇</div>
 </div>
 
 </body>
